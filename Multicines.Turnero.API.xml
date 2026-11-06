@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Multicines.Turnero.API</name>
+    </assembly>
+    <members>
+        <member name="T:Multicines.Turnero.API.Models.PagedResult`1">
+            <summary>Resultado paginado genérico.</summary>
+            <param name="Items">Elementos de la página actual.</param>
+            <param name="TotalCount">Total de elementos en todas las páginas.</param>
+            <param name="Page">Número de página actual (base 1).</param>
+            <param name="PageSize">Cantidad máxima de elementos por página.</param>
+            <param name="TotalPages">Total de páginas disponibles.</param>
+        </member>
+        <member name="M:Multicines.Turnero.API.Models.PagedResult`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>Resultado paginado genérico.</summary>
+            <param name="Items">Elementos de la página actual.</param>
+            <param name="TotalCount">Total de elementos en todas las páginas.</param>
+            <param name="Page">Número de página actual (base 1).</param>
+            <param name="PageSize">Cantidad máxima de elementos por página.</param>
+            <param name="TotalPages">Total de páginas disponibles.</param>
+        </member>
+        <member name="P:Multicines.Turnero.API.Models.PagedResult`1.Items">
+            <summary>Elementos de la página actual.</summary>
+        </member>
+        <member name="P:Multicines.Turnero.API.Models.PagedResult`1.TotalCount">
+            <summary>Total de elementos en todas las páginas.</summary>
+        </member>
+        <member name="P:Multicines.Turnero.API.Models.PagedResult`1.Page">
+            <summary>Número de página actual (base 1).</summary>
+        </member>
+        <member name="P:Multicines.Turnero.API.Models.PagedResult`1.PageSize">
+            <summary>Cantidad máxima de elementos por página.</summary>
+        </member>
+        <member name="P:Multicines.Turnero.API.Models.PagedResult`1.TotalPages">
+            <summary>Total de páginas disponibles.</summary>
+        </member>
+        <member name="T:Multicines.Turnero.API.Models.PickupOrder">
+            <summary>Comanda de dulcería emitida en un complejo de cines.</summary>
+            <param name="PickupNumber">Número de comanda secuencial asignado por el sistema POS.</param>
+            <param name="BookingNumber">Identificador único de transacción del sistema POS.</param>
+            <param name="PrepOrderDateTime">Timestamp (fecha, hora y segundos) en que se realizó la comanda.</param>
+            <param name="CinemaId">Identificador del complejo de cines donde se realizó la comanda.</param>
+            <param name="Status">Estado actual de la comanda.</param>
+        </member>
+        <member name="M:Multicines.Turnero.API.Models.PickupOrder.#ctor(System.Int32,System.String,System.DateTime,System.String,Multicines.Turnero.API.Models.PrepOrderStatus)">
+            <summary>Comanda de dulcería emitida en un complejo de cines.</summary>
+            <param name="PickupNumber">Número de comanda secuencial asignado por el sistema POS.</param>
+            <param name="BookingNumber">Identificador único de transacción del sistema POS.</param>
+            <param name="PrepOrderDateTime">Timestamp (fecha, hora y segundos) en que se realizó la comanda.</param>
+            <param name="CinemaId">Identificador del complejo de cines donde se realizó la comanda.</param>
+            <param name="Status">Estado actual de la comanda.</param>
+        </member>
+        <member name="P:Multicines.Turnero.API.Models.PickupOrder.PickupNumber">
+            <summary>Número de comanda secuencial asignado por el sistema POS.</summary>
+        </member>
+        <member name="P:Multicines.Turnero.API.Models.PickupOrder.BookingNumber">
+            <summary>Identificador único de transacción del sistema POS.</summary>
+        </member>
+        <member name="P:Multicines.Turnero.API.Models.PickupOrder.PrepOrderDateTime">
+            <summary>Timestamp (fecha, hora y segundos) en que se realizó la comanda.</summary>
+        </member>
+        <member name="P:Multicines.Turnero.API.Models.PickupOrder.CinemaId">
+            <summary>Identificador del complejo de cines donde se realizó la comanda.</summary>
+        </member>
+        <member name="P:Multicines.Turnero.API.Models.PickupOrder.Status">
+            <summary>Estado actual de la comanda.</summary>
+        </member>
+        <member name="T:Multicines.Turnero.API.Models.PickupOrderItem">
+            <summary>Línea de producto dentro de una orden de dulcería.</summary>
+            <param name="Quantity">Cantidad de unidades de este producto.</param>
+            <param name="ItemId">Identificador del Item.</param>
+            <param name="Description">Descripción del producto según el sistema POS.</param>
+        </member>
+        <member name="M:Multicines.Turnero.API.Models.PickupOrderItem.#ctor(System.Int32,System.String,System.String)">
+            <summary>Línea de producto dentro de una orden de dulcería.</summary>
+            <param name="Quantity">Cantidad de unidades de este producto.</param>
+            <param name="ItemId">Identificador del Item.</param>
+            <param name="Description">Descripción del producto según el sistema POS.</param>
+        </member>
+        <member name="P:Multicines.Turnero.API.Models.PickupOrderItem.Quantity">
+            <summary>Cantidad de unidades de este producto.</summary>
+        </member>
+        <member name="P:Multicines.Turnero.API.Models.PickupOrderItem.ItemId">
+            <summary>Identificador del Item.</summary>
+        </member>
+        <member name="P:Multicines.Turnero.API.Models.PickupOrderItem.Description">
+            <summary>Descripción del producto según el sistema POS.</summary>
+        </member>
+        <member name="T:Multicines.Turnero.API.Models.PrepOrderStatus">
+            <summary>Estado del ciclo de vida de una orden de dulcería.</summary>
+        </member>
+        <member name="F:Multicines.Turnero.API.Models.PrepOrderStatus.InPreparation">
+            <summary>Cocina está preparando activamente la orden.</summary>
+        </member>
+        <member name="F:Multicines.Turnero.API.Models.PrepOrderStatus.Prepared">
+            <summary>Preparación completada, esperando retiro del cliente.</summary>
+        </member>
+        <member name="F:Multicines.Turnero.API.Models.PrepOrderStatus.Delivered">
+            <summary>Orden entregada al cliente.</summary>
+        </member>
+        <member name="M:Multicines.Turnero.API.Services.IPickupOrderService.GetOrdersAsync(System.String,System.DateOnly,System.Int32,System.Int32)">
+            <summary>
+            Retorna null si el cinemaId no existe; PagedResult vacío si no hay órdenes en la fecha.
+            </summary>
+        </member>
+        <member name="T:Program">
+            <summary>
+            Auto-generated public partial Program class for top-level statement apps.
+            </summary>
+        </member>
+    </members>
+</doc>
